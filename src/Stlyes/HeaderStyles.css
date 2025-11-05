@@ -1,56 +1,78 @@
-* {
-    margin : 0;
-    padding : 0;
-    box-sizing: border-box;
-}
 nav {
-    
-    background : #1d2b53;
-    margin-bottom: 20px;
-    height : 50px;
-    width:100vw;
-    display : flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
-
-.logo {
-    flex-grow: 1;
-}
-.nav_img {
-    mix-blend-mode: multiply;
-    max-width: 5em;
-}
-svg {
-    height: 1.55em;
-    background:  #ffffff;
-    /* height : 100%; */
-    border-right: 2px solid black;
-    /* border-left: 2px solid black; */
-    /* border-radius: 0px 10px 10px 0; */
-    margin: 0;
-    padding : 0;
-    cursor: pointer;
-    position: absolute;
-    right: 0px;
-}
-
-.search {
-    position: relative;
-    margin-right : 1em;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(25, 25, 25, 0.95);
+    padding: 10px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 10px;
+    z-index: 100;
 }
-.search .nav_search {
-    /* position: absolute; */
-    /* border-radius: 0px 10px 10px 0; */
 
-    font-family: impact;
-    font-size: 0.9em;
-    letter-spacing: 3px;
-    padding : 5px;
-    outline : none;
-    border : none;
-    width: 200px;
-    height: 25px;
+/* ---------- Logo ---------- */
+.logo img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- Search Section ---------- */
+.search {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.search:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav_search {
+    border: none;
+    background: transparent;
+    color: #fff;
+    outline: none;
+    padding: 8px 12px;
+    width: 250px;
+    font-size: 1rem;
+}
+
+.nav_search::placeholder {
+    color: #bbb;
+}
+
+.search svg {
+    fill: #00e5ff;
+    cursor: pointer;
+    transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+.search svg:hover {
+    transform: scale(1.2);
+    fill: #1de9b6;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav_search {
+        width: 160px;
+    }
 }

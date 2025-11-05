@@ -1,58 +1,108 @@
-* {
-    margin : 0;
-    padding : 0;
-    box-sizing: border-box;
+/* ---------- Card Container ---------- */
+.card_body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    align-items: start;
+    margin-top: 40px;
+    padding: 0 15px;
+    transition: all 0.4s ease;
+}
+
+/* ---------- Desktop / Large Screens ---------- */
+@media (min-width: 1024px) {
+    .card_body {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        justify-content: space-between;
+    }
+}
+
+/* ---------- Mobile (stacked vertically) ---------- */
+@media (max-width: 768px) {
+    .card_body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+/* ---------- Movie Card ---------- */
+.movie_card {
+    background: linear-gradient(160deg, #1a1a1a, #0d0d0d);
+    border-radius: 14px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 280px;
+    transition: all 0.4s ease;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+}
+
+.movie_card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 229, 255, 0.3);
+}
+
+/* ---------- Poster Image ---------- */
+.img_poster_div {
+    width: 100%;
+    height: 360px;
     overflow: hidden;
 }
-.card_body {
-    display : grid;
-    grid-template-columns : repeat(5,1fr);
-    grid-gap : 5px;
-    grid-auto-rows: 250px;
-    cursor : pointer;
-    margin-right: 70px;
-    margin-left: 70px;
+
+.img_poster_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.movie_card {
-    border-radius: 10px 10px 0px 0;
-    display : grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 70px;
-    background: #7e2553;   
-}
-.movie_card:hover {
-    box-shadow: 0px 0px 10px 1px black;
-    transform: scale(1.01);
-    transition: 0.1s ease;
-
+.movie_card:hover .img_poster_img {
+    transform: scale(1.1);
 }
 
-.img_poster_div {
-    position: relative;  
-}
+/* ---------- Movie Details ---------- */
 .img_poster_details {
-    height : inherit;
-    display : flex;
-    flex-direction: column;
-    justify-self: center;
-    align-content: center;
-    padding-top: 0.8em;
-}
-.img_poster_div .img_poster_img {
-    border-radius: 10px 10px 0px 0;
-    position: absolute;
-    height : 100%;
-    width : 100%;
+    padding: 15px;
+    text-align: center;
 }
 
-.img_poster_details h3 {
-    font-size: 0.8em;
-    font-family: sans-serif;
-    color : white;    
+.movie_title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #00e5ff;
+    margin-bottom: 5px;
 }
-.img_poster_details h5 {
-    font-size: 0.7em;
-    font-family  : helvetica;
-    color : #faef5d;
+
+.movie_year {
+    font-size: 0.9rem;
+    color: #bdbdbd;
+    margin-bottom: 10px;
+}
+
+.img_poster_details button {
+    background: #00e5ff;
+    border: none;
+    color: #000;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.img_poster_details button:hover {
+    background: #1de9b6;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+/* ---------- Loading Text ---------- */
+.card_body h3 {
+    color: #aaa;
+    text-align: center;
+    font-weight: 400;
 }

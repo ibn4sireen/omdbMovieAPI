@@ -34,11 +34,11 @@ export default function Container() {
       />
       <Cards>
         {
-          movies.length>0?(
-            movies.map(movie=>(
-              <Card movie={movie}/>
+          movies.length > 0 ? (
+            movies.map(movie => (
+              <Card movie={movie} />
             ))
-          ):<h3>Loading Image</h3>
+          ) : <h3>Loading Image</h3>
         }
       </Cards>
     </div>
